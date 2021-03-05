@@ -16,19 +16,17 @@ public class Runner {
                 businessTrip.show();
         }
         //maxCost trip output
+        BusinessTrip max = new BusinessTrip();
         int maxTripCost = businessTrips[0].getTotal();
         for (BusinessTrip businessTrip : businessTrips
         ) {
             if (businessTrip != null)
-                if (businessTrip.getTotal() > maxTripCost)
-                    maxTripCost = businessTrip.getTotal();
+                if (businessTrip.getTotal() > maxTripCost){
+                    max = businessTrip;
+                    maxTripCost = businessTrip.getTotal();}
         }
-        for (BusinessTrip businessTrip : businessTrips
-        ) {
-            if (businessTrip != null)
-                if (businessTrip.getTotal() == maxTripCost)
-                    System.out.println(businessTrip);
-        }
+        System.out.println("MaxCostTrip : " + max);
+
         //Setting transportationCost in the last element
         businessTrips[businessTrips.length - 1].setTransportCost(1332);
         //Total duration of two first elements output

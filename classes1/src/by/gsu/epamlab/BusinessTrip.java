@@ -108,14 +108,11 @@ class BusinessTrip {
      * Method that output information about object
      */
     public void show() {
-        System.out.println("rate = " + DAYLI_RATE / 100 + "."
-                + ("00" + DAYLI_RATE).substring(("00" + DAYLI_RATE).length() - 2));
+        System.out.println("rate = " + convert(DAYLI_RATE));
         System.out.println("account = " + employeesAccount);
-        System.out.println("transport = " + transportCost / 100 + "."
-                + ("00" + transportCost).substring(("00" + transportCost).length() - 2));
+        System.out.println("transport = " + convert(transportCost));
         System.out.println("days = " + numberOfDays);
-        System.out.println("total = " + getTotal() / 100 + "."
-                + ("00" + getTotal()).substring(("00" + getTotal()).length() - 2));
+        System.out.println("total = " + convert(getTotal()));
     }
 
     /**
@@ -126,10 +123,13 @@ class BusinessTrip {
     @Override
     public String toString() {
         return employeesAccount + ";"
-                + transportCost / 100 + "."
-                    + ("00" + transportCost).substring(("00" + transportCost).length() - 2) + ";"
+                + convert(transportCost) + ";"
                 + numberOfDays + ";"
-                + getTotal() / 100 + "."
-                    + ("00" + getTotal()).substring(("00" + getTotal()).length() - 2);
+                + convert(getTotal()) ;
+    }
+    private String convert (int money)
+    {
+        return + money / 100 + "."
+                + ("00" + money).substring(("00" + money).length() - 2);
     }
 }
