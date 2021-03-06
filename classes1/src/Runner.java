@@ -1,4 +1,4 @@
-package by.gsu.epamlab;
+import by.gsu.epamlab.BusinessTrip;
 
 public class Runner {
     public static void main(String[] args) {
@@ -37,6 +37,5 @@ public class Runner {
         ) {
             System.out.println(businessTrip);
         }
-
     }
 }

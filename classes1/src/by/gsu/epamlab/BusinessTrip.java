@@ -3,7 +3,7 @@ package by.gsu.epamlab;
 /**
  * Class BusinessTrip
  */
-class BusinessTrip {
+public class BusinessTrip {
 
     /**
      * Constructor without parameters
@@ -14,7 +14,7 @@ class BusinessTrip {
     /**
      * constant field DAYLI_RATE
      */
-    private final static int DAYLI_RATE = 7;
+    private final static int DAYLI_RATE = 2334;
     /**
      * field employeesAccount
      */
