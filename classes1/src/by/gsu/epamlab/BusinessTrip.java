@@ -127,6 +127,11 @@ public class BusinessTrip {
                 + numberOfDays + ";"
                 + convert(getTotal()) ;
     }
+    /**
+     * Funntion for convert money
+     * @param money
+     * @return money in rubles
+     * */
     private String convert (int money)
     {
         return + money / 100 + "."

@@ -2,13 +2,14 @@ import by.gsu.epamlab.BusinessTrip;
 
 public class Runner {
     public static void main(String[] args) {
-        //Creation of objects
-        BusinessTrip first = new BusinessTrip("Ivan Ivanov", 2423, 5);
-        BusinessTrip second = new BusinessTrip("Peter Petrov", 1045, 3);
-        BusinessTrip fourth = new BusinessTrip("Daniil Daniilov", 2021, 1);
-        BusinessTrip fifthWithoutArg = new BusinessTrip();
         //Creation of array
-        BusinessTrip[] businessTrips = new BusinessTrip[]{first, second, null, fourth, fifthWithoutArg};
+        BusinessTrip[] businessTrips = new BusinessTrip[]{
+                new BusinessTrip("Ivan Ivanov", 2423, 5),
+                new BusinessTrip("Peter Petrov", 1045, 3),
+                null,
+                new BusinessTrip("Daniil Daniilov", 2021, 1),
+                new BusinessTrip()
+        };
         //Content output of array by show() method
         for (BusinessTrip businessTrip : businessTrips
         ) {
@@ -25,7 +26,7 @@ public class Runner {
                     max = businessTrip;
                     maxTripCost = businessTrip.getTotal();}
         }
-        System.out.println("MaxCostTrip : " + max);
+        max.show();
 
         //Setting transportationCost in the last element
         businessTrips[businessTrips.length - 1].setTransportCost(1332);
