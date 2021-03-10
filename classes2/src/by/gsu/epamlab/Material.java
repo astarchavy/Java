@@ -21,6 +21,7 @@ public class Material {
         return this.density;
     }
 
+    @Override
     public String toString() {
         return this.name + ";" + this.density;
     }

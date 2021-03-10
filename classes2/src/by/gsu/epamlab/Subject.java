@@ -38,6 +38,7 @@ public class Subject {
         this.volume = volume;
     }
 
+    @Override
     public String toString() {
         return name + ";" + this.material + ";" + this.volume + ";" + this.getMass();
     }
