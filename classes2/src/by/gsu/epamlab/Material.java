@@ -23,6 +23,6 @@ public class Material {
 
     @Override
     public String toString() {
-        return this.name + ";" + this.density;
+        return name + ";" + density;
     }
 }
