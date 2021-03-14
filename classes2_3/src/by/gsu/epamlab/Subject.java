@@ -39,7 +39,7 @@ public class Subject {
     }
 
     public String toString() {
-        return name + ";" + this.material + ";" + this.volume + ";" + this.getMass();
+        return name + ";" + material + ";" + volume + ";" + getMass();
     }
 
     public double getMass() {
