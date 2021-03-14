@@ -7,12 +7,16 @@ public enum Material {
         this.density = density ;
     }
 
+    public String getName() {
+        return name().toLowerCase();
+    }
+    
     public double getDensity() {
         return density;
     }
 
     @Override
     public String toString() {
-        return name() + ";" + density;
+        return getName() + ";" + density;
     }
 }
