@@ -1,10 +1,10 @@
 package by.gsu.epamlab;
 
-import static by.gsu.epamlab.DayOfWeek.*;
+import static by.gsu.epamlab.Convert.convert;
 
 public class Purchase implements Comparable<Purchase> {
-    private final String PRODUCTNAME = "kettle";
-    private final int PRICE = 2334;
+    public static final String PRODUCTNAME = "kettle";
+    public static final int PRICE = 2334;
     private int number;
     private int discount;
     private DayOfWeek dayOfWeek;
@@ -16,12 +16,6 @@ public class Purchase implements Comparable<Purchase> {
         this.number = number;
         this.discount = discount;
         this.dayOfWeek = dayOfWeek;
-    }
-
-    public Purchase(int number, int discount, int dayOfWeek) {
-        this.number = number;
-        this.discount = discount;
-        this.dayOfWeek = getDayByNumber(dayOfWeek);
     }
 
     public int getNumber() {
@@ -56,51 +50,18 @@ public class Purchase implements Comparable<Purchase> {
         return PRICE;
     }
 
-    private DayOfWeek getDayByNumber(int numberOfDay) {
-        switch (numberOfDay) {
-            case 0:
-                return SUNDAY;
-            case 1:
-                return MONDAY;
-            case 2:
-                return TUESDAY;
-            case 3:
-                return WEDNESDAY;
-            case 4:
-                return THURSDAY;
-            case 5:
-                return FRIDAY;
-            case 6:
-                return SATURDAY;
-        }
-        return null;
-    }
-
     public int getCost() {
         return Math.round(PRICE * number * (100 - discount) / 100);
     }
 
     @Override
-    public int compareTo(Purchase o) {
-        if (this.getNumber() < o.getNumber()) {
-            return -1;
-        }
-        if (this.getNumber() > o.getNumber()) {
-            return 1;
-        }
-        if (this.getNumber() == o.getNumber()) {
-            return 0;
-        }
-        return 0;
-    }
-
-    private static String convert(int money) {
-        return String.format("%d.%d02d", money / 100, money % 100);
+    public int compareTo(Purchase purchase) {
+        return number - purchase.number;
     }
 
     @Override
     public String toString() {
-        return number + ";" + discount + ";" + convert(getCost()) + dayOfWeek;
+        return number + ";" + discount + ";" + convert(getCost()) + ";" + dayOfWeek;
     }
 }
 
