@@ -184,7 +184,7 @@ Int[] arInt2 = new int[] {5, 7, 9, -5, 6}; // is identical to the previous one
 **Ответ:** В языке программирования Java каждое приложение должно содержать ```main()``` метод, сигнатура которого:   
 ```public static void main (String [] args){}```  
 Модификаторы ```public``` и ```static``` могут быть записаны в любом порядке 
-```public static ```или ```static public```, но по соглашению следует использовать, ```public static``` как показано выше. Вы можете назвать аргумент как угодно, но большинство программистов выбирают «args» или «argv».
+```public static ```или ```static public```, но по соглашению следует использовать, ```public static``` как показано выше. Вы можете назвать аргумент как угодно, но большинство программистов выбирают «args» или «argv».  
 **Источник:** https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
 
 
