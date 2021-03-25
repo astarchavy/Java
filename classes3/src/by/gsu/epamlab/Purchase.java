@@ -18,6 +18,10 @@ public class Purchase implements Comparable<Purchase> {
         this.dayOfWeek = dayOfWeek;
     }
 
+    public Purchase(int number, int discount, int dayOfWeek) {
+        this(number, discount, DayOfWeek.values()[dayOfWeek]);
+    }
+
     public int getNumber() {
         return number;
     }
@@ -42,16 +46,12 @@ public class Purchase implements Comparable<Purchase> {
         this.discount = discount;
     }
 
-    public String getPRODUCTNAME() {
-        return PRODUCTNAME;
-    }
-
-    public int getPRICE() {
-        return PRICE;
-    }
-
     public int getCost() {
-        return Math.round(PRICE * number * (100 - discount) / 100);
+        int cost=(PRICE * number * (100 - discount) / 100);
+        if (cost % 100 >= 50)
+            return (cost / 100 + 1) * 100;
+        else
+            return (cost / 100) * 100;
     }
 
     @Override
