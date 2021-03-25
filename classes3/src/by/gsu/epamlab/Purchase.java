@@ -3,55 +3,51 @@ package by.gsu.epamlab;
 import static by.gsu.epamlab.Convert.convert;
 
 public class Purchase implements Comparable<Purchase> {
-    public static final String PRODUCTNAME = "kettle";
+    public static final String PRODUCT_NAME = "kettle";
     public static final int PRICE = 2334;
     private int number;
-    private int discount;
-    private DayOfWeek dayOfWeek;
+    private double discountPercent;
+    private WeekDay weekDay;
 
     public Purchase() {
     }
 
-    public Purchase(int number, int discount, DayOfWeek dayOfWeek) {
+    public Purchase(int number, int discountPercent, WeekDay weekDay) {
         this.number = number;
-        this.discount = discount;
-        this.dayOfWeek = dayOfWeek;
+        this.discountPercent = discountPercent;
+        this.weekDay = weekDay;
     }
 
-    public Purchase(int number, int discount, int dayOfWeek) {
-        this(number, discount, DayOfWeek.values()[dayOfWeek]);
+    public Purchase(int number, int discountPercent, int weekDay) {
+        this(number, discountPercent, WeekDay.values()[weekDay]);
     }
 
     public int getNumber() {
         return number;
     }
 
-    public int getDiscount() {
-        return discount;
+    public double getDiscountPercent() {
+        return discountPercent;
     }
 
-    public DayOfWeek getDayOfWeek() {
-        return dayOfWeek;
+    public WeekDay getWeekDay() {
+        return weekDay;
     }
 
-    public void setDayOfWeek(DayOfWeek dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
+    public void setWeekDay(WeekDay weekDay) {
+        this.weekDay = weekDay;
     }
 
     public void setNumber(int number) {
         this.number = number;
     }
 
-    public void setDiscount(int discount) {
-        this.discount = discount;
+    public void setDiscountPercent(int discountPercent) {
+        this.discountPercent = discountPercent;
     }
 
     public int getCost() {
-        int cost=(PRICE * number * (100 - discount) / 100);
-        if (cost % 100 >= 50)
-            return (cost / 100 + 1) * 100;
-        else
-            return (cost / 100) * 100;
+        return (int) Math.round((PRICE * number * (100 - discountPercent) / 100) / 100) * 100;
     }
 
     @Override
@@ -61,7 +57,7 @@ public class Purchase implements Comparable<Purchase> {
 
     @Override
     public String toString() {
-        return number + ";" + discount + ";" + convert(getCost()) + ";" + dayOfWeek;
+        return number + ";" + discountPercent + ";" + weekDay + ";" + convert(getCost());
     }
 }
 
