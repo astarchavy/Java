@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static by.gsu.epamlab.Convert.convert;
+import static by.gsu.epamlab.Utility.convert;
 
 public class Runner {
 
@@ -25,7 +25,7 @@ public class Runner {
             final int PURCHASES_NUMBER = sc.nextInt();
             Purchase[] purchases = new Purchase[PURCHASES_NUMBER];
             for (int i = 0; i < PURCHASES_NUMBER; i++) {
-                purchases[i] = new Purchase(sc.nextInt(), sc.nextInt(), sc.nextInt());
+                purchases[i] = new Purchase(sc.nextInt(), sc.nextDouble(), sc.nextInt());
             }
             printPurchases(purchases);
             int totalCostMonday = 0;
@@ -36,9 +36,9 @@ public class Runner {
             for (Purchase purchase : purchases) {
                 int cost = purchase.getCost();
                 if (purchase.getWeekDay() == WeekDay.MONDAY) {
-                    totalCostMonday += purchase.getCost();
+                    totalCostMonday += cost;
                 }
-                totalCost += purchase.getCost();
+                totalCost += cost;
                 if (cost >= maxCost) {
                     maxCost = cost;
                     maxCostDay = purchase.getWeekDay();

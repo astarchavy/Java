@@ -1,6 +1,6 @@
 package by.gsu.epamlab;
 
-import static by.gsu.epamlab.Convert.convert;
+import static by.gsu.epamlab.Utility.convert;
 
 public class Purchase implements Comparable<Purchase> {
     public static final String PRODUCT_NAME = "kettle";
@@ -12,13 +12,13 @@ public class Purchase implements Comparable<Purchase> {
     public Purchase() {
     }
 
-    public Purchase(int number, int discountPercent, WeekDay weekDay) {
+    public Purchase(int number, double discountPercent, WeekDay weekDay) {
         this.number = number;
         this.discountPercent = discountPercent;
         this.weekDay = weekDay;
     }
 
-    public Purchase(int number, int discountPercent, int weekDay) {
+    public Purchase(int number, double discountPercent, int weekDay) {
         this(number, discountPercent, WeekDay.values()[weekDay]);
     }
 

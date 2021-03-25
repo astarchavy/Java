@@ -1,7 +1,7 @@
 package by.gsu.epamlab;
 
-public class Convert {
-    private Convert() {
+public class Utility {
+    private Utility() {
     }
 
     public static String convert(int kopecks) {
