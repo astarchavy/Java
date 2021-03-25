@@ -42,7 +42,7 @@ public class Purchase implements Comparable<Purchase> {
         this.number = number;
     }
 
-    public void setDiscountPercent(int discountPercent) {
+    public void setDiscountPercent(double discountPercent) {
         this.discountPercent = discountPercent;
     }
 
