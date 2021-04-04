@@ -50,7 +50,7 @@ public class Purchase {
     }
 
     protected String fieldsToString() {
-        return name + ";" + number + ";" + price;
+        return name + ";" + price + ";" + number;
     }
 
     public Byn getCost() {
@@ -65,11 +65,6 @@ public class Purchase {
         return number == purchase.number &&
                 name.equals(purchase.name) &&
                 price.equals(purchase.price);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, price, number);
     }
 
     @Override

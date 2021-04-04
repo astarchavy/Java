@@ -12,7 +12,8 @@ public class Runner {
 
     public static void main(String[] args) {
         final int PURCHASES_NUMBER = 6;
-        try (Scanner sc = new Scanner(new FileReader("src/in.txt"))) {
+        final String FILE_NAME = "src/in.txt";
+        try (Scanner sc = new Scanner(new FileReader(FILE_NAME))) {
             sc.useLocale(Locale.ENGLISH);
             boolean allEqual = true;
             Purchase[] purchases = new Purchase[PURCHASES_NUMBER];
