@@ -33,15 +33,6 @@ public class DiscountInBynPurchase extends Purchase {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        DiscountInBynPurchase that = (DiscountInBynPurchase) o;
-        return Objects.equals(discountInByn, that.discountInByn);
-    }
-
-    @Override
     public Byn getCost() {
         return new Byn(getPrice()).subtraction(discountInByn).multiply(getNumber());
     }

@@ -33,15 +33,6 @@ public class DiscountInPercentPurchase extends Purchase {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        DiscountInPercentPurchase that = (DiscountInPercentPurchase) o;
-        return Double.compare(that.discountInPercent, discountInPercent) == 0;
-    }
-
-    @Override
     public Byn getCost() {
         Byn cost = super.getCost();
         if(getNumber() >= MIN_ITEM_FOR_DISCOUNT){
