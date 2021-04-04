@@ -2,15 +2,23 @@ package by.gsu.epamlab;
 
 import java.util.Objects;
 
-public class Byn implements Comparable<Byn> {
+public final class Byn implements Comparable<Byn> {
     private int kopecks;
+
+    public Byn() {
+    }
 
     public Byn(int kopecks) {
         this.kopecks = kopecks;
     }
 
-    public Byn(Byn copyKopecks) {
-        this(copyKopecks.kopecks);
+    public Byn(Byn byn) {
+        this(byn.kopecks);
+    }
+
+    public Byn add(Byn byn) {
+        kopecks += byn.kopecks;
+        return this;
     }
 
     public Byn multiply(int secondFactor) {
@@ -23,8 +31,8 @@ public class Byn implements Comparable<Byn> {
         return this;
     }
 
-    public Byn subtraction(Byn minuend) {
-        kopecks -= minuend.kopecks;
+    public Byn subtraction(Byn byn) {
+        kopecks -= byn.kopecks;
         return this;
     }
 

@@ -1,7 +1,6 @@
 
 import by.gsu.epamlab.Byn;
 import by.gsu.epamlab.Purchase;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Locale;
@@ -9,30 +8,31 @@ import java.util.Scanner;
 
 import static by.gsu.epamlab.PurchasesFactory.getPurchaseFromFactory;
 
-
 public class Runner {
 
     public static void main(String[] args) {
+        final int PURCHASES_NUMBER = 6;
         try (Scanner sc = new Scanner(new FileReader("src/in.txt"))) {
             sc.useLocale(Locale.ENGLISH);
-            final int PURCHASES_NUMBER = 6;
-            boolean purchaseEquals = true;
+            boolean allEqual = true;
             Purchase[] purchases = new Purchase[PURCHASES_NUMBER];
-            Purchase PurchaseWithMaxCost = new Purchase();
-            Byn maxCost = new Byn(0);
+            Purchase purchaseWithMaxCost = new Purchase("", new Byn(0), 0);
+
             for (int i = 0; i < PURCHASES_NUMBER; i++) {
                 purchases[i] = getPurchaseFromFactory(sc);
                 System.out.println(purchases[i]);
-                if (purchases[i].getCost().compareTo(maxCost) > 0) {
-                    maxCost = purchases[i].getCost();
-                    PurchaseWithMaxCost = purchases[i];
+
+                if (purchases[i].getCost().compareTo(purchaseWithMaxCost.getCost()) >= 0) {
+                    purchaseWithMaxCost = purchases[i];
                 }
-                if (purchases[0].equals(purchases[i]) == false) {
-                    purchaseEquals = false;
+
+                if (allEqual) {
+                    allEqual = purchases[i].equals(purchases[0]);
                 }
             }
-            System.out.println("Purchase with max cost: " + PurchaseWithMaxCost);
-            System.out.println("All purchases are equal: " + purchaseEquals);
+            System.out.println("Purchase with max cost: " + purchaseWithMaxCost);
+            System.out.println("All purchases are equal: " + allEqual);
+
         } catch (FileNotFoundException e) {
             System.err.println("Input file is not found");
         }
