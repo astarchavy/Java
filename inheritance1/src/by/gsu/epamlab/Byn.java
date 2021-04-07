@@ -29,7 +29,7 @@ public class Byn implements Comparable<Byn> {
     }
 
     public Byn multiply(double secondFactor, RoundMethod roundMethod, int d) {
-        kopecks = RoundMethod.ROUND.round(kopecks * secondFactor, roundMethod, d);
+        kopecks = roundMethod.round(kopecks * secondFactor, d);
         return this;
     }
 
@@ -39,7 +39,7 @@ public class Byn implements Comparable<Byn> {
     }
 
     public Byn round(RoundMethod roundMethod, int d) {
-        kopecks = RoundMethod.ROUND.round(kopecks, roundMethod, d);
+        kopecks = roundMethod.ROUND.round(kopecks, d);
         return this;
     }
 
