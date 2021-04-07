@@ -35,8 +35,8 @@ public class DiscountInPercentPurchase extends Purchase {
     @Override
     public Byn getCost() {
         Byn cost = super.getCost();
-        if(getNumber() >= MIN_ITEM_FOR_DISCOUNT){
-           cost =  cost.multiply(1 - discountInPercent / 100);
+        if (getNumber() >= MIN_ITEM_FOR_DISCOUNT) {
+            cost = cost.multiply((1 - (discountInPercent / 100)), Byn.RoundMethod.FLOOR, 0);
         }
         return cost;
     }

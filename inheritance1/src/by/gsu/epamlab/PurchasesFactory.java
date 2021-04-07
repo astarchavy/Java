@@ -4,21 +4,28 @@ import java.util.Scanner;
 
 public class PurchasesFactory {
     private enum PurchaseKind {
-        GENERAL_PURCHASE, DISCOUNT_IN_BYN_PURCHASE, DISCOUNT_IN_PERCENT_PURCHASE
+        GENERAL_PURCHASE {
+            Purchase getPurchase(Scanner sc) {
+                return new Purchase(sc);
+            }
+        },
+        DISCOUNT_IN_BYN_PURCHASE {
+            Purchase getPurchase(Scanner sc) {
+                return new DiscountInBynPurchase(sc);
+            }
+        },
+        DISCOUNT_IN_PERCENT_PURCHASE {
+            Purchase getPurchase(Scanner sc) {
+                return new DiscountInPercentPurchase(sc);
+            }
+        };
+        abstract Purchase getPurchase(Scanner sc);
     }
 
     public static Purchase getPurchaseFromFactory(Scanner sc) {
         String id = sc.next();
         PurchaseKind kind = PurchaseKind.valueOf(id);
-        switch (kind) {
-            case GENERAL_PURCHASE:
-                return new Purchase(sc);
-            case DISCOUNT_IN_BYN_PURCHASE:
-                return new DiscountInBynPurchase(sc);
-            case DISCOUNT_IN_PERCENT_PURCHASE:
-                return new DiscountInPercentPurchase(sc);
-            default:
-                throw new IllegalArgumentException();
-        }
+        return kind.getPurchase(sc);
+
     }
 }

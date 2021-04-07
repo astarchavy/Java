@@ -12,6 +12,10 @@ public final class Byn implements Comparable<Byn> {
         this.kopecks = kopecks;
     }
 
+    public Byn(int rubs, int kopecks) {
+        this(rubs * 100 + kopecks);
+    }
+
     public Byn(Byn byn) {
         this(byn.kopecks);
     }
@@ -26,13 +30,18 @@ public final class Byn implements Comparable<Byn> {
         return this;
     }
 
-    public Byn multiply(double secondFactor) {
-        kopecks = (int) Math.round((kopecks * secondFactor));
+    public Byn multiply(double secondFactor, RoundMethod roundMethod, int d) {
+        kopecks = RoundMethod.ROUND.round(kopecks * secondFactor, roundMethod, d);
         return this;
     }
 
     public Byn subtraction(Byn byn) {
         kopecks -= byn.kopecks;
+        return this;
+    }
+
+    public Byn round(RoundMethod roundMethod, int d) {
+        kopecks = RoundMethod.ROUND.round(kopecks, roundMethod, d);
         return this;
     }
 
@@ -52,5 +61,38 @@ public final class Byn implements Comparable<Byn> {
     @Override
     public int compareTo(Byn o) {
         return kopecks - o.kopecks;
+    }
+
+    public enum RoundMethod {
+        FLOOR {
+            double roundFunction(double d) {
+                return Math.floor(d);
+            }
+        },
+
+        CEIL {
+            double roundFunction(double d) {
+                return Math.ceil(d);
+            }
+        },
+
+        ROUND {
+            double roundFunction(double d) {
+                return Math.round(d);
+            }
+        };
+
+        abstract double roundFunction(double value);
+
+        public int round(double roundedValue, RoundMethod roundMethod, int d) {
+            int tenPow = pow10(d);
+            int result = (int) roundMethod.roundFunction(roundedValue / tenPow) * tenPow;
+            return result;
+        }
+
+        int pow10(int d) {
+            int[] tenPowD = {1, 10, 100, 100, 1000, 10000, 1000000, 10000000, 100000000};
+            return tenPowD[d];
+        }
     }
 }

@@ -8,7 +8,6 @@ public class Purchase {
     private Byn price;
     private int number;
 
-
     public Purchase() {
     }
 
@@ -60,11 +59,10 @@ public class Purchase {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || !(o instanceof Purchase)) return false;
         Purchase purchase = (Purchase) o;
-        return number == purchase.number &&
-                name.equals(purchase.name) &&
-                price.equals(purchase.price);
+        return name.equals(purchase.name) &&
+               price.equals(purchase.price);
     }
 
     @Override
