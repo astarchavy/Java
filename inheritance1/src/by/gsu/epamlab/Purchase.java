@@ -1,6 +1,5 @@
 package by.gsu.epamlab;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Purchase {

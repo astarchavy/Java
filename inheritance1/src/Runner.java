@@ -16,7 +16,7 @@ public class Runner {
         final String FILE_NAME = "src/in.txt";
         try (Scanner sc = new Scanner(new FileReader(FILE_NAME))) {
             sc.useLocale(Locale.ENGLISH);
-            boolean allEqual = true;
+            boolean isallEqual = true;
             Purchase[] purchases = new Purchase[PURCHASES_NUMBER];
             Purchase purchaseWithMaxCost = new Purchase("", new Byn(0), 0);
 
@@ -28,12 +28,12 @@ public class Runner {
                     purchaseWithMaxCost = purchases[i];
                 }
 
-                if (allEqual) {
-                    allEqual = purchases[i].equals(purchases[0]);
+                if (isallEqual) {
+                    isallEqual = purchases[i].equals(purchases[0]);
                 }
             }
             System.out.println("Purchase with max cost: " + purchaseWithMaxCost);
-            System.out.println("All purchases are equal: " + allEqual);
+            System.out.println("All purchases are equal: " + isallEqual);
 
         } catch (FileNotFoundException e) {
             System.err.println("Input file is not found");
