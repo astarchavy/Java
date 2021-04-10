@@ -39,7 +39,7 @@ public class Byn implements Comparable<Byn> {
     }
 
     public Byn round(RoundMethod roundMethod, int d) {
-        kopecks = roundMethod.ROUND.round(kopecks, d);
+        kopecks = roundMethod.round(kopecks, d);
         return this;
     }
 
