@@ -27,7 +27,7 @@ public enum RoundMethod {
         return result;
     }
 
-    int pow10(int d) {
+    private static int pow10(int d) {
         int[] tenPowD = {1, 10, 100, 100, 1000, 10000, 1000000, 10000000, 100000000};
         return tenPowD[d];
     }
