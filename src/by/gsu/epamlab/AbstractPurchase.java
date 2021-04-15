@@ -1,6 +1,6 @@
 package by.gsu.epamlab;
 
- public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
+public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     Product product;
     int number;
 
@@ -11,6 +11,7 @@ package by.gsu.epamlab;
 
     public AbstractPurchase() {
     }
+
     public Product getProduct() {
         return product;
     }
@@ -42,6 +43,6 @@ package by.gsu.epamlab;
 
     @Override
     public int compareTo(AbstractPurchase o) {
-        return new Byn(o.getCost().subtraction(this.getCost())).getKopecks();
+        return o.getCost().kopecks - this.getCost().kopecks;
     }
 }

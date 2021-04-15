@@ -1,7 +1,7 @@
 package by.gsu.epamlab;
 
 public class Byn implements Comparable<Byn> {
-    private final int kopecks;
+    protected final int kopecks;
 
     public Byn() {
         this(0);
@@ -12,15 +12,11 @@ public class Byn implements Comparable<Byn> {
     }
 
     public Byn(int rubs, int kopecks) {
-        this(rubs * 100 + kopecks);
+        this.kopecks = rubs * 100 + kopecks;
     }
 
     public Byn(Byn byn) {
-        this(byn.kopecks);
-    }
-
-    public int getKopecks() {
-        return kopecks;
+        this.kopecks = byn.kopecks;
     }
 
     public Byn add(Byn byn) {
