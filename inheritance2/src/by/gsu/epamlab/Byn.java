@@ -1,7 +1,7 @@
 package by.gsu.epamlab;
 
-public class Byn implements Comparable<Byn> {
-    protected final int kopecks;
+public final class Byn implements Comparable<Byn> {
+    private final int kopecks;
 
     public Byn() {
         this(0);
@@ -48,7 +48,7 @@ public class Byn implements Comparable<Byn> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Byn)) return false;
         Byn byn = (Byn) o;
         return kopecks == byn.kopecks;
     }

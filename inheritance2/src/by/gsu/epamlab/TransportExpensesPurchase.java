@@ -9,9 +9,6 @@ public class TransportExpensesPurchase extends AbstractPurchase {
         this.transportPrice = transportPrice;
     }
 
-    public TransportExpensesPurchase() {
-    }
-
     public Byn getTransportPrice() {
         return transportPrice;
     }

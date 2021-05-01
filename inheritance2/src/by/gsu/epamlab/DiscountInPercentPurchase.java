@@ -9,10 +9,6 @@ public class DiscountInPercentPurchase extends AbstractPurchase {
         this.discountInPercent = discountInPercent;
     }
 
-    public DiscountInPercentPurchase() {
-    }
-
-
     public double getDiscountInPercent() {
         return discountInPercent;
     }
@@ -23,7 +19,7 @@ public class DiscountInPercentPurchase extends AbstractPurchase {
 
     @Override
     protected String fieldsToString() {
-        return super.fieldsToString() + ";" + discountInPercent ;
+        return super.fieldsToString() + ";" + discountInPercent;
     }
 
     @Override

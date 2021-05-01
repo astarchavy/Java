@@ -7,7 +7,7 @@ public class Runner {
         final Product LIVER = new Product("liver", new Byn(1000));
         AbstractPurchase[] purchases = {
                 new DiscountInBynPurchase(LIVER, 3, new Byn(22)),
-                new DiscountInBynPurchase(LIVER, 4, new Byn(500)),
+                new DiscountInBynPurchase(LIVER, 2, new Byn(750)),
                 new DiscountInPercentPurchase(LIVER, 3, 4.8),
                 new DiscountInPercentPurchase(LIVER, 3, 61.3),
                 new TransportExpensesPurchase(LIVER, 3, new Byn(40)),
@@ -20,7 +20,7 @@ public class Runner {
 
         System.out.println("min cost = " + purchases[purchases.length - 1].getCost());
 
-        int searchPurchase = Arrays.binarySearch(purchases, new DiscountInBynPurchase(LIVER, 4, new Byn(500)));
+        int searchPurchase = Arrays.binarySearch(purchases, new DiscountInBynPurchase(LIVER, 2, new Byn(750)));
         if (searchPurchase >= 0) {
             System.out.println(purchases[searchPurchase]);
         } else {

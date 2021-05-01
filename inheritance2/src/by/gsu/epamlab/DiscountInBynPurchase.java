@@ -9,9 +9,6 @@ public class DiscountInBynPurchase extends AbstractPurchase {
         this.discountInByn = new Byn(discountInByn);
     }
 
-    public DiscountInBynPurchase() {
-    }
-
     @Override
     protected Byn getFinalCost(Byn byn) {
         return byn.subtraction(discountInByn.multiply(getNumber()));

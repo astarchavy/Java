@@ -12,10 +12,6 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
         this.number = number;
     }
 
-    public AbstractPurchase() {
-        this.product = null;
-    }
-
     public Product getProduct() {
         return product;
     }
@@ -37,7 +33,7 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     }
 
     protected String fieldsToString() {
-        return product + ";" + number ;
+        return product + ";" + number;
     }
 
     @Override
@@ -53,7 +49,7 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || (!(o instanceof AbstractPurchase))) return false;
+        if ((!(o instanceof AbstractPurchase))) return false;
         AbstractPurchase that = (AbstractPurchase) o;
         return number == that.number &&
                 Objects.equals(product, that.product);
