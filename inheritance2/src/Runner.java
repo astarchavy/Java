@@ -13,10 +13,10 @@ public class Runner {
                 new TransportExpensesPurchase(LIVER, 3, new Byn(40)),
                 new TransportExpensesPurchase(LIVER, 1, new Byn(50))
         };
-        display(purchases);
+        printPurchases(purchases);
         System.out.println("sorted:");
         Arrays.sort(purchases);
-        display(purchases);
+        printPurchases(purchases);
 
         System.out.println("min cost = " + purchases[purchases.length - 1].getCost());
 
@@ -29,7 +29,7 @@ public class Runner {
 
     }
 
-    private static void display(AbstractPurchase[] purchases) {
+    private static void printPurchases(AbstractPurchase[] purchases) {
         for (AbstractPurchase purchase : purchases) {
             System.out.println(purchase);
         }
