@@ -28,10 +28,10 @@ public final class Byn implements Comparable<Byn> {
     }
 
     public Byn multiply(double multiplier, RoundMethod round, int d) {
-        return new Byn((int) (kopecks * multiplier), d);
+        return new Byn(round.round(kopecks * multiplier, d));
     }
 
-    public Byn subtrac(Byn byn) {
+    public Byn subtract(Byn byn) {
         return new Byn(kopecks - byn.kopecks);
     }
 

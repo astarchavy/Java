@@ -24,6 +24,6 @@ public class DiscountInBynPurchase extends AbstractPurchase {
 
     @Override
     protected Byn getFinalCost(Byn baseCost) {
-        return baseCost.subtrac(discountInByn.multiply(getNumber()));
+        return baseCost.subtract(discountInByn.multiply(getNumber()));
     }
 }

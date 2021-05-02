@@ -9,12 +9,12 @@ public class DiscountInPercentPurchase extends AbstractPurchase {
         this.discountPercent = discountInPercent;
     }
 
-    public double getDiscountInPercent() {
+    public double getDiscountPercent() {
         return discountPercent;
     }
 
-    public void setDiscountInPercent(double discountInPercent) {
-        this.discountPercent = discountInPercent;
+    public void setDiscountPercent(double discountPercent) {
+        this.discountPercent = discountPercent;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class DiscountInPercentPurchase extends AbstractPurchase {
         if (getNumber() >= MIN_ITEM_FOR_DISCOUNT) {
             baseCost = baseCost.multiply(1 - discountPercent / 100, RoundMethod.ROUND, 0);
         }
-        return baseCost.round(RoundMethod.FLOOR, 2);
+        return baseCost;
     }
 }
