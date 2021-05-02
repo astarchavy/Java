@@ -6,12 +6,7 @@ public class DiscountInBynPurchase extends AbstractPurchase {
 
     public DiscountInBynPurchase(Product product, int number, Byn discountInByn) {
         super(product, number);
-        this.discountInByn = new Byn(discountInByn);
-    }
-
-    @Override
-    protected Byn getFinalCost(Byn byn) {
-        return byn.subtraction(discountInByn.multiply(getNumber()));
+        this.discountInByn = discountInByn;
     }
 
     public Byn getDiscountInByn() {
@@ -27,5 +22,8 @@ public class DiscountInBynPurchase extends AbstractPurchase {
         return super.fieldsToString() + ";" + discountInByn;
     }
 
-
+    @Override
+    protected Byn getFinalCost(Byn baseCost) {
+        return baseCost.subtrac(discountInByn.multiply(getNumber()));
+    }
 }

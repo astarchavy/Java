@@ -12,26 +12,26 @@ public final class Byn implements Comparable<Byn> {
     }
 
     public Byn(int rubs, int kopecks) {
-        this.kopecks = rubs * 100 + kopecks;
+        this(rubs * 100 + kopecks);
     }
 
     public Byn(Byn byn) {
-        this.kopecks = byn.kopecks;
+        this(byn.kopecks);
     }
 
     public Byn add(Byn byn) {
         return new Byn(kopecks + byn.kopecks);
     }
 
-    public Byn multiply(int secondFactor) {
-        return new Byn(kopecks * secondFactor);
+    public Byn multiply(int multiplier) {
+        return new Byn(kopecks * multiplier);
     }
 
-    public Byn multiply(double k, int d) {
-        return new Byn((int) (kopecks * k), d);
+    public Byn multiply(double multiplier, RoundMethod round, int d) {
+        return new Byn((int) (kopecks * multiplier), d);
     }
 
-    public Byn subtraction(Byn byn) {
+    public Byn subtrac(Byn byn) {
         return new Byn(kopecks - byn.kopecks);
     }
 
@@ -57,4 +57,6 @@ public final class Byn implements Comparable<Byn> {
     public int compareTo(Byn o) {
         return kopecks - o.kopecks;
     }
+
+
 }

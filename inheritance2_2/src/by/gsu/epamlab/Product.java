@@ -1,6 +1,6 @@
 package by.gsu.epamlab;
 
-public class Product {
+public final class Product {
 
     private final String name;
     private final Byn price;

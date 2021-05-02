@@ -46,12 +46,4 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
         return o.getCost().compareTo(getCost());
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if ((!(o instanceof AbstractPurchase))) return false;
-        AbstractPurchase that = (AbstractPurchase) o;
-        return number == that.number &&
-                Objects.equals(product, that.product);
-    }
 }

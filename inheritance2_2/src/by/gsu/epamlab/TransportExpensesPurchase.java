@@ -23,7 +23,7 @@ public class TransportExpensesPurchase extends AbstractPurchase {
     }
 
     @Override
-    protected Byn getFinalCost(Byn byn) {
-        return byn.add(transportPrice).round(RoundMethod.FLOOR, 2);
+    protected Byn getFinalCost(Byn baseCost) {
+        return baseCost.add(transportPrice);
     }
 }
