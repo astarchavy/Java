@@ -1,8 +1,5 @@
 package by.gsu.epamlab;
 
-
-import java.util.Objects;
-
 public abstract class AbstractPurchase implements Comparable<AbstractPurchase> {
     private final Product product;
     private int number;
