@@ -9,8 +9,6 @@ public class Runner {
         final String INPUT_CSV = "src/in.csv";
 
         try (Scanner sc = new Scanner(new FileReader(INPUT_CSV))) {
-
-
             final String PLUS = " + ";
             final String MINUS = " - ";
             final int LENGTH_WITH_SIGN = PLUS.length();
@@ -27,7 +25,8 @@ public class Runner {
                     int index = Integer.parseInt(elements[0]);
                     double valueByIndex = Double.parseDouble(elements[index]);
                     result += valueByIndex;
-                    strResult.append(valueByIndex < 0.0 ? MINUS : PLUS).append(Math.abs(valueByIndex));
+                    String sign = valueByIndex < 0 ? MINUS : PLUS;
+                    strResult.append(sign).append(Math.abs(valueByIndex));
                 } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                     errorNumbers++;
                 }
