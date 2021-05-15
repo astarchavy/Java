@@ -1,4 +1,4 @@
-import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
@@ -9,8 +9,13 @@ public class Runner {
         final String INPUT_CSV = "src/in.csv";
 
         try (Scanner sc = new Scanner(new FileReader(INPUT_CSV))) {
-            final String PLUS = " + ";
-            final String MINUS = " - ";
+            final String BEFORE_SIGN = " ";
+            final String AFTER_SIGN = " ";
+            final String RESULT_HEAD = "result(";
+            final String RESULT_TAIL = ") = ";
+            final String ERROR_LINES = "errorNumbers = ";
+            final String PLUS = BEFORE_SIGN + "+" + AFTER_SIGN;
+            final String MINUS = BEFORE_SIGN + "-" + AFTER_SIGN;
             final int LENGTH_WITH_SIGN = PLUS.length();
             final String DIVIDER = ";";
 
@@ -33,14 +38,15 @@ public class Runner {
             }
 
             if (strResult.length() > 0) {
+                final char CHAR_MINUS = '-';
                 if (strResult.toString().startsWith(MINUS)) {
                     strResult.delete(0, LENGTH_WITH_SIGN);
-                    strResult.insert(0, "-");
+                    strResult.insert(0, CHAR_MINUS);
                 } else strResult.delete(0, LENGTH_WITH_SIGN);
             }
 
-            System.out.println("result(" + strResult + ") = " + result);
-            System.out.println("errorNumbers = " + errorNumbers);
+            System.out.println(RESULT_HEAD + strResult + RESULT_TAIL + result);
+            System.out.println(ERROR_LINES + errorNumbers);
 
         } catch (FileNotFoundException e) {
             System.err.println("Input file is not found");
